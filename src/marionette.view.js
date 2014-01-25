@@ -21,6 +21,10 @@ Marionette.View = Backbone.View.extend({
 
     Marionette.MonitorDOMRefresh(this);
     this.listenTo(this, "show", this.onShowCalled, this);
+
+    if (_.isArray(this.behaviors)) {
+      new Marionette.Behaviors(this);
+    }
   },
 
   // import the "triggerMethod" to trigger events with corresponding
